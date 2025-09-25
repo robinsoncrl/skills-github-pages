@@ -1,0 +1,9 @@
+/* Revans Medium font-face (placeholder, replace with actual font files if available) */
+@font-face {
+  font-family: 'Revans Medium';
+  src: url('../assets/fonts/Revans-Medium.woff2') format('woff2'),
+       url('../assets/fonts/Revans-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}

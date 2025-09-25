@@ -1,0 +1,15 @@
+<!-- SaltShore Systems Logo: Double S + Wave, with stock wave clipart overlay (public domain)
+- Two bold S letters, side by side
+- Subtle wave below (SVG path)
+- Stock wave image overlay for enhancement (public domain, e.g. https://publicdomainvectors.org/en/free-clipart/Wave-vector-clip-art/85741.html)
+- Colors: #004466 (accent), #00c3ff (wave), white background -->
+<svg width="140" height="120" viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="140" height="120" rx="32" fill="#fff"/>
+  <text x="50%" y="54%" text-anchor="middle" fill="#004466" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="bold" dy=".3em">SS</text>
+  <!-- Simple SVG wave -->
+  <path d="M30 90 Q50 80 70 90 T110 90" stroke="#00c3ff" stroke-width="4" fill="none"/>
+  <!-- Stock wave clipart overlay (public domain, blue, semi-transparent) -->
+  <g opacity="0.22">
+    <path d="M20 100 Q40 80 60 100 T100 100 Q120 120 140 100" fill="#00c3ff"/>
+  </g>
+</svg>

@@ -1,0 +1,13 @@
+<!-- SaltShore Systems Logo: Anchor Clipart + Wave (Circular Badge)
+- Uses public domain anchor SVG from openclipart.org (https://openclipart.org/detail/2821/anchor-by-johnny_automatic)
+- Brand colors: #004466 (anchor), #00c3ff (wave), white background -->
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="80" cy="80" r="76" fill="#fff" stroke="#004466" stroke-width="8"/>
+  <!-- Anchor clipart (stylized, simplified for clarity) -->
+  <g transform="translate(40,30) scale(0.5)">
+    <path d="M80 20a10 10 0 1 1 0 20a10 10 0 1 1 0-20zm0 20v60m-30 0c0 16.6 13.4 30 30 30s30-13.4 30-30m-60 0h20m20 0h20m-40 0v20m0-20v20" stroke="#004466" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="80" cy="20" r="10" fill="#fff" stroke="#004466" stroke-width="4"/>
+  </g>
+  <!-- Wave at base -->
+  <path d="M45 130 Q80 145 115 130" stroke="#00c3ff" stroke-width="6" fill="none"/>
+</svg>

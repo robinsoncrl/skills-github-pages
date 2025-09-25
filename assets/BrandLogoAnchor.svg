@@ -1,0 +1,21 @@
+<!-- SaltShore Systems Logo: Anchor + Double S + Wave (Circular Badge)
+- Modern, bold anchor in center
+- Double S monogram integrated with anchor
+- Subtle wave at base
+- Circular badge for versatility
+- Colors: #004466 (anchor, text), #00c3ff (wave), white background -->
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="80" cy="80" r="76" fill="#fff" stroke="#004466" stroke-width="8"/>
+  <!-- Anchor body -->
+  <rect x="74" y="48" width="12" height="48" rx="6" fill="#004466"/>
+  <circle cx="80" cy="48" r="10" fill="#fff" stroke="#004466" stroke-width="4"/>
+  <circle cx="80" cy="48" r="4" fill="#004466"/>
+  <!-- Anchor arms -->
+  <path d="M74 96 Q60 120 80 132 Q100 120 86 96" stroke="#004466" stroke-width="8" fill="none"/>
+  <!-- Anchor flukes -->
+  <path d="M60 120 Q65 125 80 120 Q95 125 100 120" stroke="#004466" stroke-width="4" fill="none"/>
+  <!-- Double S monogram overlay -->
+  <text x="80" y="90" text-anchor="middle" fill="#004466" font-family="Arial Black, Arial, sans-serif" font-size="38" font-weight="bold" dy=".3em">SS</text>
+  <!-- Wave at base -->
+  <path d="M55 130 Q80 140 105 130" stroke="#00c3ff" stroke-width="5" fill="none"/>
+</svg>

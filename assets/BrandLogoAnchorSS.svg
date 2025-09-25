@@ -1,0 +1,17 @@
+<!-- SaltShore Systems Logo: Anchor Clipart + Double S + Wave (Circular Badge)
+- Anchor: public domain style, navy (#004466)
+- Double S: bold, centered over anchor
+- Wave: accent at base (#00c3ff)
+- Circular badge, white background -->
+<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="80" cy="80" r="76" fill="#fff" stroke="#004466" stroke-width="8"/>
+  <!-- Anchor clipart (centered) -->
+  <g transform="translate(40,30) scale(0.5)">
+    <path d="M80 20a10 10 0 1 1 0 20a10 10 0 1 1 0-20zm0 20v60m-30 0c0 16.6 13.4 30 30 30s30-13.4 30-30m-60 0h20m20 0h20m-40 0v20m0-20v20" stroke="#004466" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="80" cy="20" r="10" fill="#fff" stroke="#004466" stroke-width="4"/>
+  </g>
+  <!-- Double S monogram overlay -->
+  <text x="80" y="92" text-anchor="middle" fill="#004466" font-family="Arial Black, Arial, sans-serif" font-size="38" font-weight="bold" dy=".3em" style="letter-spacing:2px;">SS</text>
+  <!-- Wave at base -->
+  <path d="M45 130 Q80 145 115 130" stroke="#00c3ff" stroke-width="6" fill="none"/>
+</svg>
