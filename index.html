@@ -1,2 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SaltShore Systems - Where tides meet tech.</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #004466;
+      --bg: #fdfdfd;
+      --text: #222;
+      --muted: #6b7a89;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', Arial, sans-serif;
+      min-height: 100vh;
+    }
+    .hero {
+  padding: 120px 16px 0 16px;
+  min-height: 65vh;
+  text-align: center;
+  background: var(--bg) url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1440&q=80') center 70%/cover no-repeat;
+  position: relative;
+  overflow: hidden;
+    }
+    .hero h1 {
+      font-size: 2.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .cta-btn {
+  background: linear-gradient(90deg, #00c3ff 0%, #004466 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    }
+    .cta-btn:hover {
+      background: #006699;
+    }
+    .features {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 16px 32px 16px;
+  position: relative;
+    /* Tech pattern background for features */
+    .features::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, #b3e0ef 0 18%, transparent 60%);
+  z-index: 0;
+    }
+    .features::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background: url('data:image/svg+xml;utf8,<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.35"><circle cx="80" cy="80" r="7" fill="%2300c3ff"/><circle cx="300" cy="180" r="5.5" fill="%2300c3ff"/><circle cx="600" cy="120" r="5.5" fill="%2300c3ff"/><circle cx="900" cy="240" r="5.5" fill="%2300c3ff"/><circle cx="1150" cy="60" r="5.5" fill="%2300c3ff"/><polyline points="80,80 300,180 600,120 900,240 1150,60" stroke="%2300c3ff" stroke-width="2.2" fill="none"/></g></svg>') repeat-x top left;
+  background-size: 1200px 300px;
+    }
+    .features > * {
+      position: relative;
+      z-index: 2;
+    }
+    }
+    .feature-row {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .feature {
+      flex: 1;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .feature-icon {
+      font-size: 2.2rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .feature-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    .feature-desc {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    @media (min-width: 700px) {
+      .feature-row {
+        flex-direction: row;
+      }
+    }
+    .about {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 40px 16px 32px 16px;
+      text-align: center;
+    }
+    .about-logo {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, #e3f6fb 60%, #b3e0ef 100%);
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 18px;
+  line-height: 72px;
+  font-size: 2.5rem;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 2px;
+  user-select: none;
+    }
+    .about p {
+      font-size: 1.08rem;
+      color: var(--text);
+      margin: 0 auto;
+      max-width: 520px;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 8px 16px 8px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      background: var(--bg);
+    }
+    .footer-links {
+      margin: 12px 0 0 0;
+    }
+    .footer-links a {
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: #006699;
+    }
+  </style>
+</head>
+<body>
+  <div style="width:100%;background:#fffae6;color:#7a5c00;text-align:center;padding:10px 0;font-size:1.05rem;font-weight:600;letter-spacing:0.5px;z-index:100;position:relative;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+    🚧 This page is still under construction. Features and content may change. 🚧
+  </div>
+  <section class="hero">
+    <div style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;">
+  <div style="width:100%;height:100%;background:linear-gradient(180deg,rgba(0,34,51,0.38) 85%, #fdfdfd 100%);"></div>
+      <!-- Subtle tech network overlay -->
+      <svg width="100%" height="100%" viewBox="0 0 1440 400" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g opacity="0.22">
+          <!-- Network lines -->
+          <polyline points="200,320 400,180 600,220 800,100 1000,180 1200,80" stroke="#00c3ff" stroke-width="2" fill="none"/>
+          <polyline points="300,100 500,200 700,60 900,140 1100,40 1300,120" stroke="#00c3ff" stroke-width="1.5" fill="none"/>
+          <polyline points="250,350 650,300 1050,370 1350,320" stroke="#00c3ff" stroke-width="1" fill="none"/>
+          <!-- Nodes -->
+          <circle cx="200" cy="320" r="5" fill="#00c3ff"/>
+          <circle cx="400" cy="180" r="4" fill="#00c3ff"/>
+          <circle cx="600" cy="220" r="4" fill="#00c3ff"/>
+          <circle cx="800" cy="100" r="4" fill="#00c3ff"/>
+          <circle cx="1000" cy="180" r="4" fill="#00c3ff"/>
+          <circle cx="1200" cy="80" r="4" fill="#00c3ff"/>
+          <circle cx="300" cy="100" r="3" fill="#00c3ff"/>
+          <circle cx="500" cy="200" r="3" fill="#00c3ff"/>
+          <circle cx="700" cy="60" r="3" fill="#00c3ff"/>
+          <circle cx="900" cy="140" r="3" fill="#00c3ff"/>
+          <circle cx="1100" cy="40" r="3" fill="#00c3ff"/>
+          <circle cx="1300" cy="120" r="3" fill="#00c3ff"/>
+          <circle cx="250" cy="350" r="2.5" fill="#00c3ff"/>
+          <circle cx="650" cy="300" r="2.5" fill="#00c3ff"/>
+          <circle cx="1050" cy="370" r="2.5" fill="#00c3ff"/>
+          <circle cx="1350" cy="320" r="2.5" fill="#00c3ff"/>
+        </g>
+      </svg>
+    </div>
+    <div style="position:relative;z-index:2;">
+      <h1 style="color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.25)">SaltShore Systems</h1>
+      <p style="color:#e3f6fb;text-shadow:0 2px 8px rgba(0,0,0,0.18)">Where tides meet tech.</p>
+      <a class="cta-btn" href="mailto:support@saltshore.net">Contact Us</a>
+    </div>
+  </section>
+  <section class="upcoming-project" style="max-width:700px;margin:48px auto 0 auto;padding:32px 20px 28px 20px;background:#f7fbfd;border-radius:14px;box-shadow:0 2px 12px rgba(0,68,102,0.06);text-align:center;">
+  <h2 style="color:#004466;font-size:1.2rem;margin-bottom:8px;">Upcoming Project</h2>
+  <p style="color:#4a5a6a;font-size:0.98rem;max-width:480px;margin:0 auto;line-height:1.5;">SaltShore is developing a new digital solution designed to simplify complex tasks and empower users with intuitive, reliable technology. Built with security and privacy at its core, our upcoming product will reflect our commitment to quality, usability, and real-world value—helping you work smarter, not harder.<br><br>More details will be shared here soon. Thank you for your interest and trust as we continue to build with care and transparency.</p>
+  </section>
+
+  <!-- Wavy divider between hero and features -->
+  <section class="features">
+    <div class="feature-row">
+      <div class="feature">
+        <div class="feature-icon">🛠️</div>
+        <div class="feature-title">Powerful, Innovative Software Solutions</div>
+        <div class="feature-desc">Smart, adaptable tools for modern challenges</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🌊</div>
+        <div class="feature-title">Scalable Vision</div>
+        <div class="feature-desc">Brand built to grow beyond one product</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚓</div>
+        <div class="feature-title">Rooted in Maine</div>
+  <div class="feature-desc">Built on values shaped by our coastal home.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-logo">SS</div>
+    <p>SaltShore Systems is dedicated to empowering professionals with precise, reliable, and intuitive software. Our mission is to blend technical excellence with authentic coastal values, delivering tools that help you navigate the ever-changing tides of finance and business.</p>
+  </section>
+
+  <footer>
+    <div>&copy; Saltshore 2025</div>
+    <div class="footer-links">
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:support@saltshore.net">Email</a>
+    </div>
+  </footer>
+</body>
+</html>
 <!-- This is a copy of your SaltShore landing page, ready to be used as index.html for GitHub Pages. -->
 <!-- ...existing code from saltshore-landing.html... -->
+
