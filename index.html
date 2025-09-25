@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SaltShore Systems - Where tides meet tech.</title>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/fonts/revans-medium.css">
   <style>
     :root {
       --accent: #004466;
@@ -21,8 +22,8 @@
       min-height: 100vh;
     }
     .hero {
-  padding: 120px 16px 0 16px;
-  min-height: 65vh;
+  padding: 140px 16px 0 16px;
+  min-height: 70vh;
   text-align: center;
   background: var(--bg) url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1440&q=80') center 70%/cover no-repeat;
   position: relative;
@@ -56,6 +57,10 @@
     }
     .cta-btn:hover {
       background: #006699;
+      transform: translateY(-2px) scale(1.06);
+      box-shadow: 0 6px 24px rgba(0,195,255,0.22);
+      letter-spacing: 1px;
+      transition: all 0.18s cubic-bezier(.4,2,.6,1);
     }
     .features {
   display: flex;
@@ -118,6 +123,58 @@
       .feature-row {
         flex-direction: row;
       }
+      .hero img {
+        width: 180px !important;
+        height: 180px !important;
+      }
+      .hero h1 {
+        font-size: 3.2rem !important;
+      }
+      .hero p {
+        font-size: 1.5rem !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero img {
+        width: 80px !important;
+        height: 80px !important;
+      }
+      .hero h1 {
+        font-size: 1rem !important;
+      }
+      .hero p {
+        font-size: 0.85rem !important;
+      }
+      .cta-btn {
+        padding: 7px 10px !important;
+        font-size: 0.9rem !important;
+      }
+      .about-logo img {
+        width: 60px !important;
+        height: 60px !important;
+      }
+      .about-logo {
+        margin-top: -8px !important;
+        margin-bottom: 2px !important;
+      }
+      .features {
+        padding: 24px 4px 16px 4px !important;
+      }
+      .feature-row {
+        flex-direction: column !important;
+        gap: 18px !important;
+      }
+      .feature {
+        padding: 18px 8px !important;
+        font-size: 0.95rem !important;
+      }
+      .upcoming-project {
+        padding: 18px 8px 14px 8px !important;
+        font-size: 0.98rem !important;
+      }
+      .footer-links {
+        font-size: 0.95rem !important;
+      }
     }
     .about {
       max-width: 700px;
@@ -165,6 +222,41 @@
     .footer-links a:hover {
       color: #006699;
     }
+    /* Footer mission section styles */
+    .footer-mission {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 32px auto;
+      font-size: 1.08rem;
+      color: #222;
+    }
+    .footer-logo {
+      background: none;
+      box-shadow: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 18px auto;
+    }
+    .footer-logo img {
+      width: 120px;
+      height: 120px;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .footer-logo img {
+        width: 80px !important;
+        height: 80px !important;
+      }
+      .footer-logo {
+        margin-top: -8px !important;
+        margin-bottom: 2px !important;
+      }
+      .footer-mission {
+        font-size: 0.98rem !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -173,7 +265,7 @@
   </div>
   <section class="hero">
     <div style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;">
-  <div style="width:100%;height:100%;background:linear-gradient(180deg,rgba(0,34,51,0.38) 85%, #fdfdfd 100%);"></div>
+      <div style="width:100%;height:100%;background:linear-gradient(180deg,rgba(0,34,51,0.38) 85%, #fdfdfd 100%);"></div>
       <!-- Subtle tech network overlay -->
       <svg width="100%" height="100%" viewBox="0 0 1440 400" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;pointer-events:none;" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g opacity="0.22">
@@ -201,9 +293,13 @@
         </g>
       </svg>
     </div>
-    <div style="position:relative;z-index:2;">
-      <h1 style="color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.25)">SaltShore Systems</h1>
-      <p style="color:#e3f6fb;text-shadow:0 2px 8px rgba(0,0,0,0.18)">Where tides meet tech.</p>
+    <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;">
+      <!-- Test logo with solid background for troubleshooting -->
+  <!-- Removed old SSS logo.png reference -->
+      <!-- Main logo as intended -->
+  <img src="../assets/SSS_logo_2.png" alt="SaltShore Systems Logo - a stylized wave and anchor" style="width:160px;height:160px;margin-bottom:44px;box-shadow:0 2px 12px rgba(0,68,102,0.10);border-radius:50%;background:transparent;" />
+  <h1 style="color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.25);font-family:'Revans Medium', 'Revans', serif;margin-bottom:28px;">SALTSHORE SYSTEMS</h1>
+  <p style="color:#e3f6fb;text-shadow:0 2px 8px rgba(0,0,0,0.18);font-family:'Revans Medium', 'Revans', serif;margin-bottom:44px;">WHERE TIDES MEET TECH.</p>
       <a class="cta-btn" href="mailto:support@saltshore.net">Contact Us</a>
     </div>
   </section>
@@ -233,9 +329,13 @@
     </div>
   </section>
 
-  <section class="about">
-    <div class="about-logo">SS</div>
-    <p>SaltShore Systems is dedicated to empowering professionals with precise, reliable, and intuitive software. Our mission is to blend technical excellence with authentic coastal values, delivering tools that help you navigate the ever-changing tides of finance and business.</p>
+  <section class="footer-mission-section">
+    <div class="footer-logo">
+      <img src="../assets/SSS_logo_2.png" alt="SaltShore Systems circular anchor logo" />
+    </div>
+    <div class="footer-mission">
+      SaltShore Systems is dedicated to empowering professionals with precise, reliable, and intuitive software. Our mission is to blend technical excellence with authentic coastal values, delivering tools that help you navigate the ever-changing tides of finance and business.
+    </div>
   </section>
 
   <footer>
@@ -248,6 +348,3 @@
   </footer>
 </body>
 </html>
-<!-- This is a copy of your SaltShore landing page, ready to be used as index.html for GitHub Pages. -->
-<!-- ...existing code from saltshore-landing.html... -->
-
