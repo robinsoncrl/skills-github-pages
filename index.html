@@ -272,10 +272,78 @@
   </style>
 </head>
 <body>
-  <div style="width:100%;background:#fffae6;color:#7a5c00;text-align:center;padding:10px 0;font-size:1.05rem;font-weight:600;letter-spacing:0.5px;z-index:100;position:relative;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+  <div id="construction-banner" style="width:100%;background:#fffae6;color:#7a5c00;text-align:center;padding:10px 0;font-size:1.05rem;font-weight:600;letter-spacing:0.5px;z-index:1100;position:fixed;top:0;left:0;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
     🚧 This page is still under construction. Features and content may change. 🚧
   </div>
-  <button id="desktop-feedback-btn" class="cta-btn" style="background:#ffb300;color:#222;padding:10px 24px;font-size:1rem;margin:18px auto 0 auto;display:block;max-width:220px;">Feedback</button>
+  <button id="desktop-feedback-btn" class="cta-btn floating-feedback-btn" style="background:#ffb300;color:#222;padding:10px 24px;font-size:1rem;position:fixed;top:54px;right:32px;z-index:1001;box-shadow:0 2px 12px rgba(0,68,102,0.18);border-radius:8px;">Feedback</button>
+  <style>
+    #construction-banner {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      z-index: 1100 !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+    }
+    .floating-feedback-btn {
+      position: fixed !important;
+      top: 54px !important;
+      right: 32px !important;
+      z-index: 1001 !important;
+      box-shadow: 0 2px 12px rgba(0,68,102,0.18) !important;
+      border-radius: 8px !important;
+      background: #ffb300 !important;
+      color: #222 !important;
+      font-size: 1rem !important;
+      padding: 10px 24px !important;
+      font-weight: 700 !important;
+      transition: box-shadow 0.2s;
+    }
+    .floating-feedback-btn:hover {
+      box-shadow: 0 6px 24px rgba(0,195,255,0.22) !important;
+      background: #ffc300 !important;
+    }
+    @media (max-width: 700px) {
+      .floating-feedback-btn {
+        top: 38px !important;
+        right: 12px !important;
+        font-size: 0.95rem !important;
+        padding: 8px 16px !important;
+      }
+      #construction-banner {
+        font-size: 0.98rem !important;
+        padding: 8px 0 !important;
+      }
+    }
+  </style>
+  <style>
+    .floating-feedback-btn {
+      position: fixed !important;
+      top: 24px !important;
+      right: 32px !important;
+      z-index: 1001 !important;
+      box-shadow: 0 2px 12px rgba(0,68,102,0.18) !important;
+      border-radius: 8px !important;
+      background: #ffb300 !important;
+      color: #222 !important;
+      font-size: 1rem !important;
+      padding: 10px 24px !important;
+      font-weight: 700 !important;
+      transition: box-shadow 0.2s;
+    }
+    .floating-feedback-btn:hover {
+      box-shadow: 0 6px 24px rgba(0,195,255,0.22) !important;
+      background: #ffc300 !important;
+    }
+    @media (max-width: 700px) {
+      .floating-feedback-btn {
+        top: 12px !important;
+        right: 12px !important;
+        font-size: 0.95rem !important;
+        padding: 8px 16px !important;
+      }
+    }
+  </style>
   <div id="mobile-feedback-bar" style="display:none;width:100%;text-align:center;padding:12px 0 0 0;background:transparent;">
     <button id="mobile-feedback-btn" class="cta-btn" style="background:#ffb300;color:#222;padding:10px 24px;font-size:1rem;">Feedback</button>
   </div>
