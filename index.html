@@ -275,8 +275,22 @@
   <div style="width:100%;background:#fffae6;color:#7a5c00;text-align:center;padding:10px 0;font-size:1.05rem;font-weight:600;letter-spacing:0.5px;z-index:100;position:relative;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
     🚧 This page is still under construction. Features and content may change. 🚧
   </div>
-  <div id="feedback-form-embed" style="width:100%;text-align:center;padding:18px 0 0 0;background:transparent;">
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScE4WBjtcMxrFVPKSs_8pDb46dhxOmORm55HBY2eNxDsZQM1A/viewform?embedded=true" width="100%" height="605" frameborder="0" marginheight="0" marginwidth="0" style="max-width:640px;min-width:280px;">Loading…</iframe>
+  <button id="desktop-feedback-btn" class="cta-btn" style="background:#ffb300;color:#222;padding:10px 24px;font-size:1rem;margin:18px auto 0 auto;display:block;max-width:220px;">Feedback</button>
+  <div id="mobile-feedback-bar" style="display:none;width:100%;text-align:center;padding:12px 0 0 0;background:transparent;">
+    <button id="mobile-feedback-btn" class="cta-btn" style="background:#ffb300;color:#222;padding:10px 24px;font-size:1rem;">Feedback</button>
+  </div>
+  <div id="feedback-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,68,102,0.18);z-index:9999;justify-content:center;align-items:center;">
+    <div style="background:linear-gradient(135deg,#e3f6fb 60%,#b3e0ef 100%);padding:0;border-radius:18px;box-shadow:0 2px 24px rgba(0,68,102,0.18);max-width:680px;width:97vw;display:flex;flex-direction:column;align-items:center;">
+      <div style="width:100%;display:flex;justify-content:space-between;align-items:center;padding:18px 24px 0 24px;">
+        <h2 style="color:#004466;font-size:1.25rem;font-family:'Revans Medium','Revans',serif;margin:0;letter-spacing:1px;">Send Feedback</h2>
+        <button id="close-feedback" style="background:none;border:none;color:#004466;font-size:2rem;cursor:pointer;">&times;</button>
+      </div>
+      <div style="width:100%;padding:18px 24px 24px 24px;box-sizing:border-box;">
+        <div style="background:#fff;border-radius:14px;box-shadow:0 2px 12px rgba(0,68,102,0.10);padding:0;overflow:hidden;border:2px solid #00c3ff;">
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScE4WBjtcMxrFVPKSs_8pDb46dhxOmORm55HBY2eNxDsZQM1A/viewform?embedded=true" width="100%" height="605" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:12px;">Loading…</iframe>
+        </div>
+      </div>
+    </div>
   </div>
   <section class="hero">
     <div style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;">
@@ -345,10 +359,29 @@
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      var desktopFeedbackBtn = document.getElementById('desktop-feedback-btn');
       var mobileFeedbackBtn = document.getElementById('mobile-feedback-btn');
+      var feedbackModal = document.getElementById('feedback-modal');
+      var closeFeedback = document.getElementById('close-feedback');
+      function showFeedbackModal() {
+        feedbackModal.style.display = 'flex';
+      }
+      function hideFeedbackModal() {
+        feedbackModal.style.display = 'none';
+      }
+      if (desktopFeedbackBtn) {
+        desktopFeedbackBtn.addEventListener('click', showFeedbackModal);
+      }
       if (mobileFeedbackBtn) {
-        mobileFeedbackBtn.addEventListener('click', function() {
-          window.open('https://forms.gle/your-google-form-id', '_blank');
+        mobileFeedbackBtn.addEventListener('click', showFeedbackModal);
+      }
+      if (closeFeedback) {
+        closeFeedback.addEventListener('click', hideFeedbackModal);
+      }
+      // Optional: close modal on outside click
+      if (feedbackModal) {
+        feedbackModal.addEventListener('click', function(e) {
+          if (e.target === feedbackModal) hideFeedbackModal();
         });
       }
     });
