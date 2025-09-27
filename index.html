@@ -1,105 +1,3 @@
-  <style>
-    #feedback-modal {
-      display: none;
-      position: fixed;
-      left: 0; top: 0; width: 100vw; height: 100vh;
-      background: rgba(0, 68, 102, 0.18);
-      z-index: 2000;
-      align-items: center;
-      justify-content: center;
-    }
-    #feedback-modal.active {
-      display: flex;
-    }
-    .feedback-modal-content {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 32px rgba(0,68,102,0.12);
-      padding: 32px 24px;
-      max-width: 420px;
-      width: 95vw;
-      color: var(--text);
-      font-family: 'Inter', Arial, sans-serif;
-      position: relative;
-    }
-    .feedback-modal-content h2 {
-      color: var(--accent);
-      font-size: 1.5rem;
-      margin-bottom: 18px;
-      text-align: center;
-    }
-    .feedback-modal-content label {
-      font-weight: 600;
-      margin-top: 16px;
-      display: block;
-      color: var(--accent);
-    }
-    .feedback-modal-content textarea, .feedback-modal-content input[type="number"] {
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid #b3e0ef;
-      padding: 8px;
-      margin-top: 6px;
-      font-size: 1rem;
-      font-family: inherit;
-      resize: vertical;
-      box-sizing: border-box;
-    }
-    .feedback-modal-content .modal-actions {
-      display: flex;
-      justify-content: flex-end;
-      gap: 12px;
-      margin-top: 24px;
-    }
-    .feedback-modal-content button {
-      background: linear-gradient(90deg, #00c3ff 0%, #004466 100%);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 10px 22px;
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .feedback-modal-content button:hover {
-      background: #006699;
-    }
-    .feedback-modal-close {
-      position: absolute;
-      top: 12px;
-      right: 16px;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--muted);
-      cursor: pointer;
-    }
-  </style>
-  <div id="feedback-modal">
-    <div class="feedback-modal-content">
-      <button class="feedback-modal-close" title="Close">&times;</button>
-      <h2>SaltShore.net Landing Page Feedback</h2>
-      <div style="width:100%;display:flex;justify-content:center;align-items:center;">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScE4WBjtcMxrFVPKSs_8pDb46dhxOmORm55HBY2eNxDsZQM1A/viewform?embedded=true" width="100%" height="605" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,68,102,0.10);">Loading…</iframe>
-      </div>
-    </div>
-  </div>
-  <script>
-    // Modal open/close logic
-    const feedbackBtn = document.getElementById('feedback-btn');
-    const feedbackModal = document.getElementById('feedback-modal');
-    const feedbackClose = document.querySelector('.feedback-modal-close');
-    feedbackBtn.onclick = () => feedbackModal.classList.add('active');
-    feedbackClose.onclick = () => feedbackModal.classList.remove('active');
-    feedbackModal.onclick = (e) => { if (e.target === feedbackModal) feedbackModal.classList.remove('active'); };
-    // Prevent form submit for now
-    document.getElementById('feedback-form').onsubmit = function(e) {
-      e.preventDefault();
-      alert('Thank you for your feedback! (Submission not yet connected to database.)');
-      feedbackModal.classList.remove('active');
-    };
-  </script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -374,11 +272,11 @@
   </style>
 </head>
 <body>
-  <div id="construction-banner" style="position:fixed;bottom:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:12px;">
-    <div style="background:#fffae6;color:#7a5c00;text-align:center;padding:8px 18px;font-size:0.98rem;font-weight:600;letter-spacing:0.5px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);opacity:0.95;max-width:320px;">🚧 This page is still under construction. 🚧</div>
-    <button id="feedback-btn" style="background:#004466;color:#fff;border:none;border-radius:8px;padding:10px 18px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.10);cursor:pointer;font-size:1.08rem;font-weight:600;transition:background 0.2s;" title="Send Feedback">
-      Feedback
-    </button>
+  <div style="width:100%;background:#fffae6;color:#7a5c00;text-align:center;padding:10px 0;font-size:1.05rem;font-weight:600;letter-spacing:0.5px;z-index:100;position:relative;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+    🚧 This page is still under construction. Features and content may change. 🚧
+  </div>
+  <div id="feedback-form-embed" style="width:100%;text-align:center;padding:18px 0 0 0;background:transparent;">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScE4WBjtcMxrFVPKSs_8pDb46dhxOmORm55HBY2eNxDsZQM1A/viewform?embedded=true" width="100%" height="605" frameborder="0" marginheight="0" marginwidth="0" style="max-width:640px;min-width:280px;">Loading…</iframe>
   </div>
   <section class="hero">
     <div style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;">
@@ -410,25 +308,51 @@
         </g>
       </svg>
     </div>
-    <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;">
-      <img src="assets/SSS_logo_2.png" alt="SaltShore Systems Logo - a stylized wave and anchor" style="width:160px;height:160px;margin-bottom:44px;box-shadow:0 2px 12px rgba(0,68,102,0.10);border-radius:50%;background:transparent;" />
-      <h1 style="color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.25);font-family:'Revans Medium', 'Revans', serif;margin-bottom:28px;">SALTSHORE SYSTEMS</h1>
-      <p style="color:#e3f6fb;text-shadow:0 2px 8px rgba(0,0,0,0.18);font-family:'Revans Medium', 'Revans', serif;margin-bottom:44px;">WHERE TIDES MEET TECH.</p>
+    <div class="hero-content-stack" style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;">
+      <img src="assets/SSS_logo_2.png" alt="SaltShore Systems Logo - a stylized wave and anchor" class="hero-logo" style="width:160px;height:160px;margin-bottom:44px;box-shadow:0 2px 12px rgba(0,68,102,0.10);border-radius:50%;background:transparent;" />
+      <h1 class="hero-title" style="color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.25);font-family:'Revans Medium', 'Revans', serif;margin-bottom:28px;">SALTSHORE SYSTEMS</h1>
+      <p class="hero-tagline" style="color:#e3f6fb;text-shadow:0 2px 8px rgba(0,0,0,0.18);font-family:'Revans Medium', 'Revans', serif;margin-bottom:44px;">WHERE TIDES MEET TECH.</p>
       <a class="cta-btn" href="mailto:support@saltshore.net">Contact Us</a>
-      <button id="feedback-btn" class="cta-btn" style="margin-top:18px;background:#ffb300;color:#222;">Feedback</button>
-      <div id="feedback-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,68,102,0.18);z-index:9999;justify-content:center;align-items:center;">
-        <form id="feedback-form" style="background:#fff;padding:32px 24px;border-radius:12px;box-shadow:0 2px 24px rgba(0,68,102,0.18);max-width:340px;width:90vw;display:flex;flex-direction:column;gap:18px;">
-          <h2 style="margin-bottom:8px;color:#004466;font-size:1.2rem;">Send Feedback</h2>
-          <input type="text" name="name" placeholder="Your Name" required style="padding:8px 12px;border-radius:6px;border:1px solid #b3e0ef;font-size:1rem;">
-          <input type="email" name="email" placeholder="Your Email" required style="padding:8px 12px;border-radius:6px;border:1px solid #b3e0ef;font-size:1rem;">
-          <textarea name="message" placeholder="Your Feedback" required style="padding:8px 12px;border-radius:6px;border:1px solid #b3e0ef;font-size:1rem;min-height:80px;"></textarea>
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
-            <button type="submit" class="cta-btn" style="background:#004466;color:#fff;padding:8px 18px;font-size:1rem;">Submit</button>
-            <button type="button" id="close-feedback" style="background:none;border:none;color:#004466;font-size:1rem;cursor:pointer;">Cancel</button>
-          </div>
-          <div id="feedback-success" style="display:none;color:#008c44;font-size:1rem;margin-top:8px;text-align:center;">Thank you for your feedback!</div>
-        </form>
-      </div>
+  <style>
+    @media (max-width: 700px) {
+      .hero-content-stack {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 18px !important;
+      }
+      .hero-logo {
+        width: 100px !important;
+        height: 100px !important;
+        margin-bottom: 18px !important;
+      }
+      .hero-title {
+        font-size: 1.3rem !important;
+        margin-bottom: 10px !important;
+      }
+      .hero-tagline {
+        font-size: 1rem !important;
+        margin-bottom: 18px !important;
+      }
+      #mobile-feedback-bar {
+        display: block !important;
+      }
+    }
+    @media (min-width: 701px) {
+      #mobile-feedback-bar {
+        display: none !important;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var mobileFeedbackBtn = document.getElementById('mobile-feedback-btn');
+      if (mobileFeedbackBtn) {
+        mobileFeedbackBtn.addEventListener('click', function() {
+          window.open('https://forms.gle/your-google-form-id', '_blank');
+        });
+      }
+    });
+  </script>
     </div>
   </section>
   <section class="upcoming-project" style="max-width:700px;margin:48px auto 0 auto;padding:32px 20px 28px 20px;background:#f7fbfd;border-radius:14px;box-shadow:0 2px 12px rgba(0,68,102,0.06);text-align:center;">
@@ -486,32 +410,6 @@
             });
         });
       }
-        // Feedback button/modal logic
-        var feedbackBtn = document.getElementById('feedback-btn');
-        var feedbackModal = document.getElementById('feedback-modal');
-        var closeFeedback = document.getElementById('close-feedback');
-        var feedbackForm = document.getElementById('feedback-form');
-        var feedbackSuccess = document.getElementById('feedback-success');
-        if (feedbackBtn && feedbackModal && closeFeedback && feedbackForm) {
-          feedbackBtn.addEventListener('click', function() {
-            feedbackModal.style.display = 'flex';
-          });
-          closeFeedback.addEventListener('click', function() {
-            feedbackModal.style.display = 'none';
-            feedbackSuccess.style.display = 'none';
-            feedbackForm.reset();
-          });
-          feedbackForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // For now, just show success message and reset form
-            feedbackSuccess.style.display = 'block';
-            setTimeout(function() {
-              feedbackModal.style.display = 'none';
-              feedbackSuccess.style.display = 'none';
-              feedbackForm.reset();
-            }, 1800);
-          });
-        }
     });
   </script>
   <style>

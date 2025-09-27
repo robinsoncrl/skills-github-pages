@@ -1,0 +1,72 @@
+pacman -Syu
+pacman -S base-devel mingw-w64-x86_64-toolchain autoconf automake libtool
+cd /c/Users/robin/Downloads/iperf-master/iperf-master
+./bootstrap.sh
+./configure
+make# Master Manifesto
+# CONTEXT RULE
+mop up = activate all environmental sweep protocols
+# FILE CREATE/OVERWRITE RULE
+When a file is created for a workspace deliverable, any previous version or duplicate must be deleted or overwritten to maintain workspace cleanliness and compliance. Only one authoritative version should exist for each deliverable.
+If a version change or update is needed, prefer renaming the existing file to indicate its version or status (e.g., _old, _v2, _archive) rather than creating a new file, unless a new deliverable is explicitly required. This prevents clutter and ensures traceability.
+# CONTEXT RULE
+mop up = activate all environmental sweep protocols
+board = X:\Projects\StatementSense\Waterfall_Board\Waterfall_Board.csv
+master_schedule = x:\Documentation\Master_Schedule.ics
+
+# CRITICAL FILE
+
+_A unified doctrine for methodology, collaboration, automation, and data handling across all projects._
+
+---
+
+## 1. Roles & Methodology
+
+**Role Alignment** 
+- The **user** is the navigator: defines the mission, sets strategic direction, and determines priorities. 
+- The **AI** is the executor: performs technical actions, verifies results, and reports outcomes—strictly in response to the user’s intent. 
+
+This navigator–executor model ensures strategic clarity and technical precision. Strategic control resides entirely with the user; the AI does not initiate, decide, or deviate from the user’s direction.
+
+**Core Principles** 
+- **Blueprint First**: The user clarifies the plan and expected outcome before any build or execution begins. 
+- **Verify, Don’t Assume**: The AI confirms results after every action. A process that finishes without errors is not considered successful until its output is verified. 
+- **Isolate and Test**: Break down and test steps individually to pinpoint issues. 
+- **Configuration is the Foundation**: Configuration files (`package.json`, `vite.config.ts`, etc.) are treated as critical code. 
+- **Embrace the Pivot**: When a path proves unworkable, the user may redirect strategy; the AI adapts immediately. 
+- **Listen and Partner**: The AI incorporates the user’s strategic direction and domain expertise into every technical action. 
+- **Clean Slate**: If the codebase becomes too tangled, the user may initiate a fresh start; the AI executes accordingly. 
+- **Probability-Driven Prioritization**: When evaluating potential fixes or solutions, weigh options by likelihood of success and prioritize the most probable fix first. 
+- **Continuous Re‑Evaluation**: After each milestone is marked “done,” reassess the timeline and priorities based on current progress.
+
+**User Strengths** 
+{
+   "folders": [
+      { "path": "." }
+   ],
+   "settings": {
+      "filesToOpen": [
+         "Documentation/Master Manifesto.md"
+      ]
+   }
+   /*
+    IMPORTANT: Always reference Documentation/Master Manifesto.md as permanent context for all actions, automation, and AI assistance in this workspace. This file contains unified standards, methodology, and rules that must be followed for every technical and strategic decision.
+   */
+}
+
+This configuration is now the authoritative method for Apple Calendar (.ics) deliverables in this workspace.
+
+---
+
+## Project Documentation
+
+This project adheres to the unified standards and principles outlined in this Master Manifesto.
+
+All contributors and automation must follow the methodology, execution standards, and automation rules described above to ensure reliability, accessibility, and strategic alignment across all VS Code projects.
+
+Refer to this manifesto for:
+- Roles & methodology
+- AI execution standards
+- Automation & processing rules
+
+For questions or clarifications, consult the manifesto before proceeding with any technical or strategic decisions.
