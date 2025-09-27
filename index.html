@@ -1,9 +1,113 @@
+  <style>
+    #feedback-modal {
+      display: none;
+      position: fixed;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(0, 68, 102, 0.18);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+    #feedback-modal.active {
+      display: flex;
+    }
+    .feedback-modal-content {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(0,68,102,0.12);
+      padding: 32px 24px;
+      max-width: 420px;
+      width: 95vw;
+      color: var(--text);
+      font-family: 'Inter', Arial, sans-serif;
+      position: relative;
+    }
+    .feedback-modal-content h2 {
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .feedback-modal-content label {
+      font-weight: 600;
+      margin-top: 16px;
+      display: block;
+      color: var(--accent);
+    }
+    .feedback-modal-content textarea, .feedback-modal-content input[type="number"] {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #b3e0ef;
+      padding: 8px;
+      margin-top: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    .feedback-modal-content .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .feedback-modal-content button {
+      background: linear-gradient(90deg, #00c3ff 0%, #004466 100%);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 22px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .feedback-modal-content button:hover {
+      background: #006699;
+    }
+    .feedback-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+  </style>
+  <div id="feedback-modal">
+    <div class="feedback-modal-content">
+      <button class="feedback-modal-close" title="Close">&times;</button>
+      <h2>SaltShore.net Landing Page Feedback</h2>
+      <div style="width:100%;display:flex;justify-content:center;align-items:center;">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScE4WBjtcMxrFVPKSs_8pDb46dhxOmORm55HBY2eNxDsZQM1A/viewform?embedded=true" width="100%" height="605" frameborder="0" marginheight="0" marginwidth="0" style="border-radius:12px;box-shadow:0 2px 8px rgba(0,68,102,0.10);">Loading…</iframe>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Modal open/close logic
+    const feedbackBtn = document.getElementById('feedback-btn');
+    const feedbackModal = document.getElementById('feedback-modal');
+    const feedbackClose = document.querySelector('.feedback-modal-close');
+    feedbackBtn.onclick = () => feedbackModal.classList.add('active');
+    feedbackClose.onclick = () => feedbackModal.classList.remove('active');
+    feedbackModal.onclick = (e) => { if (e.target === feedbackModal) feedbackModal.classList.remove('active'); };
+    // Prevent form submit for now
+    document.getElementById('feedback-form').onsubmit = function(e) {
+      e.preventDefault();
+      alert('Thank you for your feedback! (Submission not yet connected to database.)');
+      feedbackModal.classList.remove('active');
+    };
+  </script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SaltShore Systems - Where tides meet tech.</title>
+  <!-- dom-to-image for exporting SVG+background as PNG -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/fonts/revans-medium.css">
   <style>
@@ -23,7 +127,6 @@
     }
     .hero {
   padding: 140px 16px 0 16px;
-  min-height: 70vh;
   text-align: center;
   background: var(--bg) url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1440&q=80') center 70%/cover no-repeat;
   position: relative;
@@ -271,8 +374,11 @@
   </style>
 </head>
 <body>
-  <div style="width:100%;background:#fffae6;color:#7a5c00;text-align:center;padding:10px 0;font-size:1.05rem;font-weight:600;letter-spacing:0.5px;z-index:100;position:relative;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-    🚧 This page is still under construction. Features and content may change. 🚧
+  <div id="construction-banner" style="position:fixed;bottom:24px;left:24px;z-index:1000;display:flex;align-items:center;gap:12px;">
+    <div style="background:#fffae6;color:#7a5c00;text-align:center;padding:8px 18px;font-size:0.98rem;font-weight:600;letter-spacing:0.5px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.10);opacity:0.95;max-width:320px;">🚧 This page is still under construction. 🚧</div>
+    <button id="feedback-btn" style="background:#004466;color:#fff;border:none;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,0.10);cursor:pointer;font-size:1.5rem;transition:background 0.2s;" title="Send Feedback">
+      📝
+    </button>
   </div>
   <section class="hero">
     <div style="position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;">
@@ -309,6 +415,20 @@
       <h1 style="color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.25);font-family:'Revans Medium', 'Revans', serif;margin-bottom:28px;">SALTSHORE SYSTEMS</h1>
       <p style="color:#e3f6fb;text-shadow:0 2px 8px rgba(0,0,0,0.18);font-family:'Revans Medium', 'Revans', serif;margin-bottom:44px;">WHERE TIDES MEET TECH.</p>
       <a class="cta-btn" href="mailto:support@saltshore.net">Contact Us</a>
+      <button id="feedback-btn" class="cta-btn" style="margin-top:18px;background:#ffb300;color:#222;">Feedback</button>
+      <div id="feedback-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,68,102,0.18);z-index:9999;justify-content:center;align-items:center;">
+        <form id="feedback-form" style="background:#fff;padding:32px 24px;border-radius:12px;box-shadow:0 2px 24px rgba(0,68,102,0.18);max-width:340px;width:90vw;display:flex;flex-direction:column;gap:18px;">
+          <h2 style="margin-bottom:8px;color:#004466;font-size:1.2rem;">Send Feedback</h2>
+          <input type="text" name="name" placeholder="Your Name" required style="padding:8px 12px;border-radius:6px;border:1px solid #b3e0ef;font-size:1rem;">
+          <input type="email" name="email" placeholder="Your Email" required style="padding:8px 12px;border-radius:6px;border:1px solid #b3e0ef;font-size:1rem;">
+          <textarea name="message" placeholder="Your Feedback" required style="padding:8px 12px;border-radius:6px;border:1px solid #b3e0ef;font-size:1rem;min-height:80px;"></textarea>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <button type="submit" class="cta-btn" style="background:#004466;color:#fff;padding:8px 18px;font-size:1rem;">Submit</button>
+            <button type="button" id="close-feedback" style="background:none;border:none;color:#004466;font-size:1rem;cursor:pointer;">Cancel</button>
+          </div>
+          <div id="feedback-success" style="display:none;color:#008c44;font-size:1rem;margin-top:8px;text-align:center;">Thank you for your feedback!</div>
+        </form>
+      </div>
     </div>
   </section>
   <section class="upcoming-project" style="max-width:700px;margin:48px auto 0 auto;padding:32px 20px 28px 20px;background:#f7fbfd;border-radius:14px;box-shadow:0 2px 12px rgba(0,68,102,0.06);text-align:center;">
@@ -342,12 +462,121 @@
       SaltShore Systems is dedicated to empowering professionals with precise, reliable, and intuitive software. Our mission is to blend technical excellence with authentic coastal values, delivering tools that help you navigate the ever-changing tides of finance and business.
     </div>
   </section>
+
+  <script>
+    // Download Facebook cover SVG+background as PNG
+    document.addEventListener('DOMContentLoaded', function() {
+      var btn = document.getElementById('download-fbcover-btn');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          // Find the SVG node for the Facebook cover
+          var svg = btn.closest('.fb-cover').querySelector('svg');
+          if (!svg) return;
+          domtoimage.toPng(svg)
+            .then(function(dataUrl) {
+              var link = document.createElement('a');
+              link.download = 'saltshore-fb-cover.png';
+              link.href = dataUrl;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            })
+            .catch(function(error) {
+              alert('Download failed: ' + error);
+            });
+        });
+      }
+        // Feedback button/modal logic
+        var feedbackBtn = document.getElementById('feedback-btn');
+        var feedbackModal = document.getElementById('feedback-modal');
+        var closeFeedback = document.getElementById('close-feedback');
+        var feedbackForm = document.getElementById('feedback-form');
+        var feedbackSuccess = document.getElementById('feedback-success');
+        if (feedbackBtn && feedbackModal && closeFeedback && feedbackForm) {
+          feedbackBtn.addEventListener('click', function() {
+            feedbackModal.style.display = 'flex';
+          });
+          closeFeedback.addEventListener('click', function() {
+            feedbackModal.style.display = 'none';
+            feedbackSuccess.style.display = 'none';
+            feedbackForm.reset();
+          });
+          feedbackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // For now, just show success message and reset form
+            feedbackSuccess.style.display = 'block';
+            setTimeout(function() {
+              feedbackModal.style.display = 'none';
+              feedbackSuccess.style.display = 'none';
+              feedbackForm.reset();
+            }, 1800);
+          });
+        }
+    });
+  </script>
+  <style>
+    @media (max-width: 700px) {
+      .brand-preview-flex {
+        display: flex;
+        flex-direction: column !important;
+        gap: 24px !important;
+        align-items: center;
+      }
+      .brand-preview-item {
+        width: 98vw !important;
+        max-width: 99vw !important;
+        min-width: 0 !important;
+        margin: 0 auto !important;
+      }
+      .brand-preview-item.fb-cover svg {
+        width: 98vw !important;
+        height: calc(98vw * 312 / 820) !important;
+        max-width: 820px;
+        max-height: 312px;
+      }
+      .brand-preview-item.tw-header svg {
+        width: 98vw !important;
+        height: calc(98vw * 500 / 1500) !important;
+        max-width: 1500px;
+        max-height: 500px;
+      }
+      .brand-preview-item.sq-avatar svg {
+        width: 70vw !important;
+        height: 70vw !important;
+        max-width: 400px;
+        max-height: 400px;
+      }
+    }
+    @media (min-width: 701px) {
+      .brand-preview-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        justify-content: center;
+      }
+      .brand-preview-item {
+        margin: 0;
+      }
+      .brand-preview-item.fb-cover {
+        width: 410px;
+      }
+      .brand-preview-item.tw-header {
+        width: 450px;
+      }
+      .brand-preview-item.sq-avatar {
+        width: 180px;
+      }
+    }
+  </style>
   <footer>
     <div>&copy; Saltshore 2025</div>
     <div class="footer-links">
-      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
-      <a href="mailto:support@saltshore.net">Email</a>
+      <a href="https://www.facebook.com/profile.php?id=61581291097599" target="_blank" rel="noopener" aria-label="Facebook" class="footer-icon-link">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0" fill="#1877F3"/><path d="M16.671 24v-9.294h3.12l.467-3.622h-3.587V8.771c0-1.048.293-1.763 1.797-1.763l1.918-.001v-3.24c-.334-.044-1.472-.143-2.797-.143-2.766 0-4.659 1.688-4.659 4.788v2.13H9.692v3.622h3.128V24h3.851z" fill="#fff"/></svg>
+      </a>
+      <a href="mailto:support@saltshore.net" aria-label="Email" class="footer-icon-link">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 20v-9.99l7.29 6.71c.39.36 1.02.36 1.41 0L20 10.01V20H4z" fill="#222"/></svg>
+      </a>
     </div>
   </footer>
 </body>
