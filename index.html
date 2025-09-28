@@ -8,7 +8,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6QwQ6l04e6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/fonts/revans-medium.css">
-   <link rel="icon" type="image/png" href="assets/SSS logo.png">
+  <link rel="icon" type="image/png" href="assets/SSS logo.png">
+  <link rel="shortcut icon" type="image/png" href="assets/SSS logo.png">
   <style>
     :root {
       --accent: #004466;
@@ -273,10 +274,22 @@
   </style>
 </head>
 <body>
-  <div id="construction-banner" style="width:100%;background:#fffae6;color:#7a5c00;text-align:center;padding:10px 0;font-size:1.05rem;font-weight:600;letter-spacing:0.5px;z-index:1100;position:fixed;top:0;left:0;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
-    🚧 This page is still under construction. Features and content may change. 🚧
+  <div id="construction-banner" style="width:100%;background:#fffae6;color:#7a5c00;text-align:center;padding:4px 0;font-size:0.95rem;font-weight:500;letter-spacing:0.5px;z-index:1100;position:fixed;top:0;left:0;box-shadow:0 2px 8px rgba(0,0,0,0.04);height:32px;display:flex;align-items:center;justify-content:center;">
+    <span style="flex:1;">🚧 This page is still under construction. Features and content may change. 🚧</span>
+    <button id="close-banner-btn" style="background:none;border:none;color:#7a5c00;font-size:1.2rem;cursor:pointer;padding:0 12px;">✕</button>
   </div>
-  <button id="desktop-feedback-btn" class="cta-btn floating-feedback-btn" style="background:#ffb300;color:#222;padding:10px 24px;font-size:1rem;position:fixed;top:74px;right:32px;z-index:1001;box-shadow:0 2px 12px rgba(0,68,102,0.18);border-radius:8px;">Feedback</button>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var closeBtn = document.getElementById('close-banner-btn');
+        var banner = document.getElementById('construction-banner');
+        if (closeBtn && banner) {
+          closeBtn.addEventListener('click', function() {
+            banner.style.display = 'none';
+          });
+        }
+      });
+    </script>
+  <button id="desktop-feedback-btn" class="cta-btn floating-feedback-btn" style="background:#ffb300cc;color:#222;padding:8px 18px;font-size:0.95rem;position:fixed;top:64px;right:24px;z-index:1001;box-shadow:0 2px 8px rgba(0,68,102,0.12);border-radius:8px;opacity:0.7;transition:opacity 0.2s;">Feedback</button>
   <style>
     #construction-banner {
       position: fixed !important;
@@ -392,7 +405,7 @@
       </svg>
     </div>
     <div class="hero-content-stack" style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;">
-      <img src="assets/SSS_logo_2.png" alt="SaltShore Systems Logo - a stylized wave and anchor" class="hero-logo" style="width:160px;height:160px;margin-bottom:44px;box-shadow:0 2px 12px rgba(0,68,102,0.10);border-radius:50%;background:transparent;" />
+  <img src="assets/SSS_logo_2.png" alt="SaltShore Systems Logo - a stylized wave and anchor" class="hero-logo" style="width:320px;height:320px;margin-bottom:44px;box-shadow:0 2px 12px rgba(0,68,102,0.10);border-radius:50%;background:transparent;" />
       <h1 class="hero-title" style="color:#fff;text-shadow:0 2px 12px rgba(0,0,0,0.25);font-family:'Revans Medium', 'Revans', serif;margin-bottom:28px;">SALTSHORE SYSTEMS</h1>
       <p class="hero-tagline" style="color:#e3f6fb;text-shadow:0 2px 8px rgba(0,0,0,0.18);font-family:'Revans Medium', 'Revans', serif;margin-bottom:44px;">WHERE TIDES MEET TECH.</p>
       <a class="cta-btn" href="mailto:support@saltshore.net">Contact Us</a>
